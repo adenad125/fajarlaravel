@@ -15,10 +15,10 @@ Route::get('/mahasiswa', function () {
     return view('mahasiswa', compact ('data')); 
 });
 
-Route::get('/prodi', function () {
-    $data = ['nama' => 'fajar', 'foto' =>'pomnas.jpeg'];
-    return view('prodi', compact ('data')); 
-});
+// Route::get('/prodi', function () {
+//     $data = ['nama' => '', 'foto' =>'opp.jpeg'];
+//     return view('prodi', compact ('data')); 
+// });
 
 
 
@@ -28,7 +28,13 @@ Route::get('prodi', 'App\Http\Controllers\ProdiController@index');
 Route::get('/data', [MahasiswaController::class, 'index']);
 Route::get('/data/{id}', [MahasiswaController::class, 'show']);
 
-Route::get('/prodi', [ProdiController::class, 'index']);
-Route::get('/prodi/create', [ProdiController::class, 'create']);
-Route::post('/prodi', [ProdiController::class, 'store']);
+// Route::get('/prodi', [ProdiController::class, 'index']);
+// Route::get('/prodi/create', [ProdiController::class, 'create']);
+// Route::post('/prodi', [ProdiController::class, 'store']);
 
+
+
+Route::resource('/prodi', ProdiController::class);
+
+
+Route::resource('/mahasiswa', MahasiswaController::class);
