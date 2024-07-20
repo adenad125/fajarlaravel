@@ -35,20 +35,20 @@
           </li>
           
           <li class="nav-item">
-            <a href="{{ url('mahasiswa') }}" class="nav-link">
+            <a href="{{ url('siswa') }}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Data Mahasiswa
+                Data siswa
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
           </li>
       
           <li class="nav-item">
-            <a href="{{ url('prodi') }}" class="nav-link">
+            <a href="{{ url('kelas') }}" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Data Prodi
+                Data kelas
               </p>
             </a>
           </li>

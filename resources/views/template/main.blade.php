@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Mahasiswa Poliban</title>
+  <title>Data siswa</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -40,11 +40,11 @@
       </li>
      
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="mahasiswa" class="nav-link">Data Mahasiswa</a>
+        <a href="siswa" class="nav-link">Data siswa</a>
       </li>
    
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="prodi" class="nav-link">Data Prodi</a>
+        <a href="kelas" class="nav-link">Data kelas</a>
       </li>
     </ul>
 
@@ -57,9 +57,12 @@
       
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="logout.php">
+        <form action="/logout" method="post">
+          @csrf
+        <button type="submit" class="btn btn-link">
           Logout<i class="fas fa-sign-out-alt"></i> 
-        </a>
+      </button>
+      </form>
       </li>
     </ul>
   </nav>

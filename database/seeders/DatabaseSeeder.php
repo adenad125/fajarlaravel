@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Prodi;
-use App\Models\Mahasiswa;
+use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,37 +15,51 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Prodi::create([
-            'nama_prodi' => 'Bisnis Digital'
+        kelas::create([
+            'nama_kelas' => 'IPS'
         ]);
 
-        Prodi::create([
-            'nama_prodi' => 'Manajemen Informatika'
+        kelas::create([
+            'nama_kelas' => 'MIPA'
         ]);
 
-        prodi::factory(10)->create();
+        kelas::factory(10)->create();
 
 
-        Mahasiswa::create([
-            'nim' => 'E020322086',
+        siswa::create([
+            'nisn' => 'E020322099',
             'nama' => 'Oppenheimer',
             'no_hp' => '098764',
             'alamat' => 'asbdias',
             'foto' => 'oppen.jpg',
-            'password' => '123',
-            'prodi_id' => 1,
+            'kelas_id' => 1,
         ]);
         
-        Mahasiswa::create([
-            'nim' => '1prhbsjd',
+        siswa::create([
+            'nisn' => '1prhbsjd',
             'nama' => 'ajsndjk',
             'no_hp' => '98128',
             'alamat' => 'adbhadsd',
             'foto' => 'girl.jpg',
-            'password' => '123',
-            'prodi_id' => 2,
+            'kelas_id' => 2,
         ]);
 
-        Mahasiswa::factory(100)->create();
+        siswa::factory(10)->create();
+
+        user::create([
+            'user' => 'E020322099',
+            'password' => bcrypt('E020322099'),
+            'role' => 'siswa'
+        ]);
+        user::create([
+            'user' => 'E020322100',
+            'password' => bcrypt('E020322100'),
+            'role' => 'siswa'
+        ]);
+        user::create([
+            'user' => 'admin',
+            'password' => bcrypt('admin'),
+            'role' => 'siswa'
+        ]);
     }
 }

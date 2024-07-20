@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tambah Program Studi</h1>
+            <h1 class="m-0">Tambah Kelas</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb afloat-sm-right">
@@ -29,21 +29,22 @@
               <!-- jquery validation -->
               <div class="card card-warning">
                 <div class="card-header">
-                  <h3 class="card-title">Tambah Data Prodi</h3>
+                  <h3 class="card-title">Tambah Data kelas</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{url('prodi')}}" method="POST">
+                <form action="{{url('kelas')}}" method="POST">
                     @csrf
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="nama_prodi">Nama Prodi</label>
-                      <input type="text" name="nama_prodi" class="form-control @error('nama_prodi') is-invalid @enderror" id="nama_prodi" placeholder="Masukkan Prodi">
-                      @error('nama_prodi')
-                    </div class="invalid-feedback">
-                        {{$message}}
-                     </div>
-                  @enderror
+                      <label for="nama_kelas">Nama kelas</label>
+                      <input type="text" name="nama_kelas" class="form-control @error('nama_kelas') is-invalid @enderror" id="nama_kelas" placeholder="Masukkan kelas">
+                      @error('nama_kelas')
+                        <div class="invalid-feedback" >
+                          {{$message}}
+                        </div>
+                      @enderror
+                    </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">

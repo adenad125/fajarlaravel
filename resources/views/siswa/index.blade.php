@@ -2,14 +2,13 @@
 
 @section('content')
 
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Program Studi</h1>
+            <h1 class="m-0">Data siswa</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,42 +28,53 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Data Program Studi</h3>
+                <h3 class="card-title">Data siswa</h3>
   
-               <div class="card-tools">
-                <a href="/prodi/create" class="btn btn-primary">Tambah</a>
-                
-               </div>
+                <div class="card-tools">
+                <div class="card-tools">
+                <a href="/siswa/create" class="btn btn-warning">Tambah</a>
+                  </div>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Prodi</th>
-                      <th>Aksi</th>
+                      <th>Nim</th>
+                      <th>Nama</th>
+                      <th>kelas</th>
+                      <th>No Handphone</th>
+                      <th>alamat</th>
+                      <th>foto</th>
+                      <th>aksi</th>
                     </tr>
                   </thead>
                   <tbody>
-                   @foreach ($prodi as $p)
-                     
-                   
+                    @foreach ($siswa as $m)
+
+                  
+                  
                     <tr>
                       <td>{{$loop->iteration}}</td>
-                      <td>{{$p->nama_prodi}}</td>
-                      <td></td>
-                      <td><a href="{{url("prodi/$p->id/edit") }}" class="btn btn-warning">Edit</a>
-                      <form action="{{url("prodi/$p->id")}}" method="post" class="d-inline" >
-                      @method('delete')
-                      @csrf
-                        <button class="btn btn-danger" onclick="return confirm ('Yakin mau melupakan semua kenangan yang ada? atau pilih untuk melanjutkan kenangan yang sudah dibuat')" >Hapus</button>
-                        </form>
-                      @endforeach
+                      <td>{{$m->nim}}</td>
+                      <td>{{$m->nama}}</td>
+                      <td>{{$m->kelas->nama_kelas}}</td>
+                      <td>{{$m->no_hp}}</td>
+                      <td>{{$m->alamat}}</td>
+                      <td> <img src="{{ asset('storage/' .$m->foto)}}" width="100px" height="100px" /> </td>
+                      <td><a href="{{ url ("siswa/$m->nim/edit")}}" class="btn btn-primary" >Edit</a>
+                        <form action="{{ url("siswa/$m->nim")}}" method="post" class="d-inline">
+                          @method('delete')
+                          @csrf
+                        <button href="" class="btn btn-danger" onclick="return confirm('Yakin mau hapus data?')" >Hapus</button>
+                      </form>
                     </td>
                     </tr>
-                   
+@endforeach
                   </tbody>
+                 
                 </table>
               </div>
               <!-- /.card-body -->
@@ -85,4 +95,4 @@
     <!-- /.content -->
   </div>
 
-  @endsection
+@endsection
